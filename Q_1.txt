@@ -1,0 +1,51 @@
+class ArrayList
+{
+	private int x[];
+	private int size;
+	private int index;
+	
+	ArrayList(int size)
+	{
+		this.size = size;
+		index = -1;
+		x = new int[this.size];
+	}
+	
+	public void add(int data)
+	{
+		if(index == size-1)
+		{
+			int temp[] = x;
+			this.size = this.size*2;
+			x = new int[this.size];
+			
+			for(int i=0;i<=index;i++)
+				x[i] = temp[i];
+		}
+		index++;
+		x[index] = data;
+	}
+	
+	public void traverse()
+	{
+		if(index == -1)
+			System.out.println("List is empty.");
+		else
+		{
+			for(int i=0;i<=index;i++)
+				System.out.println(x[i]);
+		}
+	}
+}
+public class array_list
+{
+	public static void main(String[] args)
+	{
+		ArrayList l = new ArrayList(5);
+		for(int i=1;i<=5;i++)
+			l.add(i*10);
+		
+		l.add(60);
+		l.traverse();
+	}
+}
